@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tafsheer Ahmed Khan — Safety Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1B1F24;
+    --bg-raised: #232830;
+    --ink: #EDEDE6;
+    --ink-dim: #A9AFB8;
+    --amber: #F2A93B;
+    --amber-dim: #C98A2E;
+    --steel: #3A424D;
+    --line: #333B44;
+    --stripe-a: #F2A93B;
+    --stripe-b: #1B1F24;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F3F1EC;
+      --bg-raised: #FFFFFF;
+      --ink: #201D19;
+      --ink-dim: #5B5A56;
+      --amber: #B5721A;
+      --amber-dim: #8F5B14;
+      --steel: #C9C4B8;
+      --line: #DCD7CC;
+      --stripe-a: #B5721A;
+      --stripe-b: #F3F1EC;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B1F24;
+    --bg-raised: #232830;
+    --ink: #EDEDE6;
+    --ink-dim: #A9AFB8;
+    --amber: #F2A93B;
+    --amber-dim: #C98A2E;
+    --steel: #3A424D;
+    --line: #333B44;
+    --stripe-a: #F2A93B;
+    --stripe-b: #1B1F24;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', -apple-system, Segoe UI, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--amber); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover, a:focus-visible { border-bottom-color: var(--amber); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .hazard-rule {
+    height: 6px;
+    width: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--stripe-a) 0 10px,
+      var(--stripe-b) 10px 20px
+    );
+    opacity: 0.85;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.hero {
+    padding: 64px 0 40px;
+  }
+  .role-tag {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--amber);
+    border: 1px solid var(--amber-dim);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Archivo Expanded', 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    line-height: 1.08;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .subhead {
+    color: var(--ink-dim);
+    font-size: 1.15rem;
+    max-width: 46ch;
+    margin: 0 0 28px;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 26px;
+    font-size: 0.96rem;
+    color: var(--ink-dim);
+  }
+  .contact-row a { color: var(--ink); }
+  .contact-row span.k {
+    color: var(--amber-dim);
+    font-size: 0.78rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  section h2 {
+    font-family: 'Archivo Expanded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 26px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  section h2 .n {
+    color: var(--amber);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  /* Experience: timeline down the left */
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 4px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: var(--steel);
+  }
+  .job { position: relative; margin-bottom: 30px; }
+  .job:last-child { margin-bottom: 0; }
+  .job::before {
+    content: "";
+    position: absolute;
+    left: -26px; top: 5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--amber);
+  }
+  .job.current::before { background: var(--amber); }
+  .job-title { font-weight: 600; font-size: 1.08rem; }
+  .job-org { color: var(--ink-dim); font-size: 0.96rem; margin-top: 2px; }
+  .badge-current {
+    font-size: 0.72rem;
+    color: var(--bg);
+    background: var(--amber);
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 8px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+
+  /* Certifications grid */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .cert {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--amber);
+    padding: 14px 16px;
+    font-weight: 500;
+    font-size: 0.98rem;
+  }
+  .cert .full {
+    display: block;
+    font-weight: 400;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+    margin-top: 3px;
+  }
+
+  /* Education */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-stage { font-size: 0.78rem; color: var(--amber-dim); margin-bottom: 3px; }
+  .edu-name { font-weight: 600; }
+  .edu-place { color: var(--ink-dim); font-size: 0.94rem; margin-top: 2px; }
+
+  footer {
+    padding: 36px 0 60px;
+    color: var(--ink-dim);
+    font-size: 0.88rem;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 560px) {
+    .cert-grid { grid-template-columns: 1fr; }
+    header.hero { padding: 44px 0 28px; }
+  }
+
+  .pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 10px 18px;
+    background: var(--amber);
+    color: var(--bg);
+    border: none;
+    border-radius: 3px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .pdf-btn:hover { background: var(--amber-dim); }
+
+  @media print {
+    .hazard-rule { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pdf-btn { display: none; }
+    body { background: #fff; color: #111; }
+    a { color: #111; border-bottom: none; }
+    section { border-top: 1px solid #ccc; }
+    .job::before { border-color: #B5721A; }
+    .job.current::before { background: #B5721A; }
+    .cert { border-color: #ccc; border-left-color: #B5721A; background: #fafafa; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hazard-rule"></div>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="role-tag">Safety Engineer</span>
+    <h1>Tafsheer Ahmed Khan</h1>
+    <p class="subhead">Industrial and site safety professional — hazard identification, compliance auditing, and workforce safety training across construction and industrial operations.</p>
+    <div class="contact-row">
+      <div><span class="k">Email</span><a href="mailto:tafsheerkhan15@gmail.com">tafsheerkhan15@gmail.com</a></div>
+      <div><span class="k">Phone</span><a href="tel:+919140123045">+91 91401 23045</a></div>
+      <div><span class="k">Website</span><a href="https://tafsheerkhanlntecc.com" target="_blank" rel="noopener">tafsheerkhanlntecc.com</a></div>
+    </div>
+    <button class="pdf-btn" onclick="window.print()">Download as PDF</button>
+  </header>
+
+  <section aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience <span class="n">career path</span></h2>
+    <div class="timeline">
+      <div class="job">
+        <div class="job-title">Safety Supervisor</div>
+        <div class="job-org">L&amp;T — Larsen &amp; Toubro</div>
+      </div>
+      <div class="job">
+        <div class="job-title">Safety Consultant</div>
+        <div class="job-org">Moritho Consultant Private Limited</div>
+      </div>
+      <div class="job current">
+        <div class="job-title">Safety Engineer <span class="badge-current">Current</span></div>
+        <div class="job-org">On-site industrial &amp; construction safety oversight</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cert-h">
+    <h2 id="cert-h">Certifications <span class="n">5 credentials</span></h2>
+    <div class="cert-grid">
+      <div class="cert">IOSH<span class="full">Institution of Occupational Safety and Health</span></div>
+      <div class="cert">NEBOSH<span class="full">National Examination Board in Occupational Safety and Health</span></div>
+      <div class="cert">OSHA<span class="full">Occupational Safety and Health Administration standards</span></div>
+      <div class="cert">ADIS<span class="full">Advanced Diploma in Industrial Safety</span></div>
+      <div class="cert">Level 3 Diploma in Safety<span class="full">Occupational health &amp; safety practice</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="edu-h">
+    <h2 id="edu-h">Education &amp; Training <span class="n">chronological</span></h2>
+
+    <div class="edu-item">
+      <div class="edu-stage">Schooling · Class 5–10</div>
+      <div class="edu-name">Crescent Convent School</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-stage">Schooling · Class 10–12</div>
+      <div class="edu-name">DAV Public School</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-stage">ITI · 2 Years</div>
+      <div class="edu-name">Nani Ma Sharda Devi College</div>
+      <div class="edu-place">Allahabad</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-stage">B.Com · 3 Years</div>
+      <div class="edu-name">Allahabad University</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-stage">Diploma</div>
+      <div class="edu-name">Mechanical Engineering</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-stage">Diploma</div>
+      <div class="edu-name">Industrial Safety Management</div>
+    </div>
+  </section>
+
+  <footer>
+    Tafsheer Ahmed Khan — Safety Engineer. Built as a personal portfolio page.
+  </footer>
+</div>
+
+</body>
+</html>
